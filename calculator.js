@@ -82,6 +82,7 @@ symbols.forEach((btn) => {
     out = "";
     equation += btn.textContent;
     output.textContent = btn.textContent;
+    switcher = 0;
   });
 });
 
