@@ -17,7 +17,6 @@ function roundNumber(num, scale) {
   }
 }
 
-
 const test = "";
 const clear = document.querySelector("#C");
 const plusminus = document.querySelector("#plusminus");
@@ -41,6 +40,8 @@ const equal = document.querySelector("#equal");
 const output = document.querySelector("#in");
 let equation = "";
 let out = "";
+let switcher = 0;
+let buttonCount = 0;
 
 const numbers = [
   seven,
@@ -56,14 +57,21 @@ const numbers = [
   period,
 ];
 
-
 const symbols = [add, subtract, multiply, divide];
 
 numbers.forEach((btn) => {
   btn.addEventListener("click", () => {
-    output.textContent = "" + 0;
     let char = btn.textContent;
-    out = char;
+
+    if (switcher === 1) {
+      out = "";
+      equation = "";
+      out += char;
+      switcher = 0;
+    } else {
+      out += char;
+    }
+
     equation += "" + char;
     output.textContent = out;
   });
@@ -85,10 +93,12 @@ clear.addEventListener("click", () => {
 
 equal.addEventListener("click", () => {
   out = "";
-  let eq = equation.replace("x", "*")
+  let eq = equation.replace("x", "*");
   let answer = roundNumber(math.evaluate(eq), 4);
   console.log(answer);
   equation = "" + answer;
   console.log(equation);
   output.textContent = "" + answer;
+  switcher = 1;
+  buttonCount = 0;
 });
