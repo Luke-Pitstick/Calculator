@@ -71,3 +71,22 @@ body {
 .orange {
     background-color: orange;
 }
+
+.footer {
+  margin-top: 0;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 1vh;
+  overflow: hidden;
+  text-align: center;
+}
+
+
+.github {
+  transition: all .5s ease-in-out;
+}
+
+.github:hover {
+  transform: rotate(-1turn) scale(1.1);
+  transition: all .5s ease-in-out;
+}
